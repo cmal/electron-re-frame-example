@@ -9,10 +9,18 @@
     and Electron <script>document.write(process.versions['electron'])</script>.
 
     <div id="app">
-      <p>Minimum app does not work.</p>
+      <p>Minimum app does not work!</p>
     </div>
 
     <script type="text/javascript" src="js/front.js" charset="utf-8"></script>
+
+    <script>
+	document.addEventListener("keydown", function (e) {
+		if (e.which === 189) {
+			require('remote').getCurrentWindow().toggleDevTools();
+		}
+	});
+    </script>
 
   </body>
 </html>

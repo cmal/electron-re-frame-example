@@ -1,8 +1,9 @@
 (ns setup-front.core
   (:require [reagent.core :as reagent :refer [atom]]
-            [anh-front.views :as views]))
+            [setup-front.views :as views]
+            [re-frame.core :as rf]))
 
-(defonce app-state (atom {:message "Hello Minimum app world!"}))
+#_(defonce app-state (atom {:message "Hello Minimum app world!"}))
 
 (defn mount-root [setting]
   (reagent/render [views/main-panel]
@@ -12,4 +13,5 @@
   )
 
 (defn init! [setting]
+  (rf/dispatch-sync [:initialize-db])
   (mount-root setting))
